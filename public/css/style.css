@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI";
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  background-color: #fff;
+ }
+ 
+ /* marge des ul qui regroupe les link*/ 
+ ul{
+  margin-top: 0;
+  margin-bottom: 1rem;
+ }
+ 
+ /* pas de souligne */
+ a{
+   text-decoration: none;
+ }
+ 
+p{
+  text-align: center;
+}
+
+ img {
+   vertical-align: middle;
+   border-style: none;
+  }
+ 
+ .container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+ }
+
+ /* affichage d'après la taille de l'appareil */
+ @media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+ }
+ 
+ /* marge de la barre de menu */ 
+ .row {
+  margin-right: -15px;
+  margin-left: -15px;
+ }
+ 
+  /* partager l'espace de l'écran entre les elements */
+ .col {
+  flex-grow: 1;
+ }
+ 
+ /* pror*/ 
+ .navbar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+ }
+ /* propriété */ 
+ .navbar-brand {
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  color: white
+ }
+ 
+ /* propriété */
+ .navbar-nav {
+   display: flex;
+   flex-direction: row;
+   padding-left: 0;
+   margin-bottom: 0;
+   list-style: none;
+  }
+ 
+  .navbar-collapse {
+    /* affichage flexible */ 
+   display: flex !important;
+   /* partager l'espace de l'écran entre les elements */
+   flex-grow: 1;
+  }
+ 
+  /* propriété pour les links */ 
+  .nav-link {
+   color: rgba(255, 255, 255, 0.5);
+   padding-right: 0.5rem;
+   padding-left: 0.5rem;
+  }
+ 
+ /* l'apparence des link lorsqu'on les survole avec le pointeur */
+ .nav-link:hover{
+  color: white
+ }
+ 
+ /* démarquer l'état actif(link active) parmis les link*/
+ .navbar-nav .active > .nav-link,
+ .nav-link.active {
+  color: #fff;
+ }
+ 
+ /* couleur d'arrière plan de la barre du menu */
+ .barre {
+  background-color: rgba(0, 181, 204);
+ }
+ 
+ /* propri pour le regroupement à l'extremité */
+ .ml-auto{
+  margin-left: auto !important;
+ }
+
+ #signup-form, #signin-form{
+  width:400px;
+  margin:0 auto;
+  margin-top:5%;
+}
+
+.auteurs{
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+
+  padding: 30px;
+  border: 1px solid #f1f1f1;
+  border-radius:60px;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+form {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    border-radius:60px;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#container h1{
+  width: 38%;
+  margin: auto;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius:60px;
+    font-family: "Segoe UI";
+}
+
+input[type=submit] {
+    background-color: rgba(0, 181, 204);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius:60px;
+    font-family: "Segoe UI";
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: rgba(0, 181, 204);
+    border: 1px solid rgba(0, 181, 204);
+}

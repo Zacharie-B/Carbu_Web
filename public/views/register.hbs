@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="signup-form">
+      <form id="signup-data" action="./register.html" method="POST">
+        <h1>Inscription</h1>
+        <label><b>Nom</b></label>
+        <input
+          type="text"
+          placeholder="Entrer votre nom"
+          name="username"
+          required
+        />
+
+        <label><b>Prénom</b></label>
+        <input
+          type="text"
+          placeholder="Entrer votre prénom"
+          name="username"
+          required
+        />
+
+        <label><b>Email</b></label>
+        <input
+          type="email"
+          placeholder="Entrer votre adresse mail"
+          name="usermail"
+          required
+        />
+
+        <label><b>Mot de passe</b></label>
+        <input
+          type="password"
+          placeholder="Entrer le mot de passe"
+          name="password"
+          required
+        />
+
+        <input type="submit" id="submit" value="S'INSCRIRE" />
+      </form>
+    </div>
+    <script src="./scripts/signup.js" refer></script>
+    <p>Valeur test : {{prix}}</p>
+    <p>Adresse d'un station au hasard : {{station_ex}}</p>
+  </body>
+</html>

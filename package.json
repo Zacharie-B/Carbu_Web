@@ -1,0 +1,15 @@
+{
+  "name": "Trouve Ton Essence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.9",
+    "axios": "^0.26.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "xml-js": "^1.6.11"
+  }
+}
