@@ -1,23 +1,30 @@
 const fs = require("fs");
 
-exports.readData = function (ville) {
-  console.log('lecture de data.json...');
-  var JsonData = fs.readFileSync("data.json");
-  var ParsedJsonData = JSON.parse(JsonData);
-  // console.log(ParsedJsonData.pdv_liste.pdv[0]); // 59780003
-  
+/**
+ *  Charge le fichier JSON en RAM et le parse.
+ */
+const readJson = function () {
+  let JsonData = fs.readFileSync("data.json");
+  return JSON.parse(JsonData);
+}
+
+/**
+ * Recherche dans les données les stations dans la ville indiqué.
+ */
+exports.searchDataCity = function (ville) {
+  let ParsedJsonData = readJson(); 
+  var resultData = [];
   for (let i = 0; i < ParsedJsonData.pdv_liste.pdv.length; i++) {
-    if (ParsedJsonData.pdv_liste.pdv[i].ville._text === ville) {
-      // console.log(ParsedJsonData.pdv_liste.pdv[i].services);
-      
-      for (let j = 0; j < ParsedJsonData.pdv_liste.pdv[i].prix.length; j++) {
-        // console.log(
-        //   ParsedJsonData.pdv_liste.pdv[i].prix[j]._attributes.nom +
-        //     " est à " +
-        //     ParsedJsonData.pdv_liste.pdv[i].prix[j]._attributes.valeur
-        // );
-      }
-      return ParsedJsonData.pdv_liste.pdv[i].prix;
+    if (ParsedJsonData.pdv_liste.pdv[i].ville._text == ville || ParsedJsonData.pdv_liste.pdv[i].ville._text == ville.toUpperCase()) {
+      resultData.push(ParsedJsonData.pdv_liste.pdv[i]);
     }
   }
+  return resultData;
+};
+
+/**
+ * Recherche dans les données les stations à proximité de la ville indiqué.
+ */
+exports.searchDataPosition = function (latitude, longitude, rayon) {
+  
 };

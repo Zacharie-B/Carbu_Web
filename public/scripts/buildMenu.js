@@ -1,6 +1,5 @@
 function createMenu(){
   var divMenu = document.getElementsByClassName('barre');
-  // console.log(divMenu[0].id);
 
   let divContainer = document.createElement('div');
   divContainer.className = 'container';

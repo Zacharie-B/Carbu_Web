@@ -55,6 +55,8 @@ app.get("/login", function (req, res) {
 app.get("/register", function (req, res) {
   res.render("register", {
     title: "Trouve ton essence !",
+    prix: "1",
+    station_ex: "Paris"
   });
 });
 
@@ -99,9 +101,12 @@ const getData = async () => {
   fs.writeFileSync("data.json", FinalJSON);
   console.log('fichier data.json ecrit');
 };
-getData();
+// getData();
 
-var readJson = require('./server/readJson');
-console.log(readJson.readData('Paris'));
+var readData = require('./server/processCarbuData');
+readData.getDataJson('ville','Ermont');
+console.log(readData.getGpsCoordinates());
+console.log(readData.getAddress());
+console.log(readData.getCarburant());
 
 console.log("fin du serveur");
