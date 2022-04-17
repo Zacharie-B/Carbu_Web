@@ -1,45 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>
-    <div id="signup-form">
-      <form id="signup-data" action="./register.html" method="POST">
-        <h1>Inscription</h1>
-        <label><b>Nom</b></label>
-        <input
-          type="text"
-          placeholder="Entrer votre nom"
-          name="username"
-          required
-        />
+    <div id="container">
+      <form id="register" method="POST">
+          <h1>Inscription</h1>
+          <label><b>Nom</b></label>
+          <input type="text" placeholder="Entrer votre nom" name="username" required>
 
-        <label><b>Prénom</b></label>
-        <input
-          type="text"
-          placeholder="Entrer votre prénom"
-          name="username"
-          required
-        />
+          <label><b>Prénom</b></label>
+          <input type="text" placeholder="Entrer votre prénom" name="username" required>
 
-        <label><b>Email</b></label>
-        <input
-          type="email"
-          placeholder="Entrer votre adresse mail"
-          name="usermail"
-          required
-        />
+          <label><b>Email</b></label>
+          <input type="email" placeholder="Entrer votre adresse mail" id="email" required>
 
-        <label><b>Mot de passe</b></label>
-        <input
-          type="password"
-          placeholder="Entrer le mot de passe"
-          name="password"
-          required
-        />
+          <label><b>Mot de passe</b></label>
+          <input type="password" placeholder="Entrer le mot de passe" id="password" required>
 
-        <input type="submit" id="submit" value="S'INSCRIRE" />
+          <input type="submit" id="submit" value="S&#039INSCRIRE" >
       </form>
     </div>
-    <script src="./scripts/signup.js" refer></script>
+
+    <script>
+      const form = document.getElementById('register')
+      form.addEventListener('submit', register)
+
+      async function register(event) {
+        event.preventDefault()
+        const email = document.getElementById('email').value
+        const password = document.getElementById('password').value
+
+        const result = await fetch('register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email,
+            password
+          })
+        }).then((res) => res.json())
+
+        if (result.status === "ok") {
+        alert(result.message)
+      } else {
+        alert(result.error)
+      }
+
+      }
+    </script>
+
+    <script>
+      /*  */
+      function myFunction() {
+        document.getElementById("navbarContent").classList.toggle("show");
+      }
+      //
+      window.onclick = function(event) {
+        if (!event.target.matches('.navbar-toggler')) {
+          var dropdowns = document.getElementsByClassName("navbar-collapse");
+          var i;
+          for (i = 1; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
     <p>Valeur test : {{prix}}</p>
     <p>Adresse d'un station au hasard : {{station_ex}}</p>
   </body>

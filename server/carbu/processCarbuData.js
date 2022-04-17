@@ -31,6 +31,22 @@ exports.getGpsCoordinates = function () {
       data[i]._attributes.latitude, 
       data[i]._attributes.longitude
     ];
+    
+    // On convertit les coordonnées au format utilisable sur google maps
+    let lat;
+    let long;
+    if(gpsCoordinates[0].indexOf('.') == -1 && gpsCoordinates[1].indexOf('.') == -1){
+      lat = gpsCoordinates[0].substr(0,2) + '.' + gpsCoordinates[0].substr(2);
+      long = gpsCoordinates[1].substr(0,1) + '.' + gpsCoordinates[1].substr(1);
+    }else{
+      let latIndex = gpsCoordinates[0].indexOf('.');
+      let longIndex = gpsCoordinates[1].indexOf('.');
+      lat = gpsCoordinates[0].substr(0,2) + '.' + gpsCoordinates[0].substr(2,latIndex - 2) + gpsCoordinates[0].substr(latIndex + 1);
+      long = gpsCoordinates[1].substr(0,1) + '.' + gpsCoordinates[1].substr(1,longIndex - 1) + gpsCoordinates[1].substr(longIndex + 1);
+    }
+    gpsCoordinates[0] = lat;
+    gpsCoordinates[1] = long;
+    
     gpsStationsCoordinates.push(gpsCoordinates);
   }
   return gpsStationsCoordinates;

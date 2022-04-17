@@ -14,8 +14,15 @@ const express = require("express");
 var exphbs = require("express-handlebars");
 // CORS permet d'eviter les erreurs de policy
 const cors = require("cors");
-// Glob charge toutes les pages Javascript d'un répertoire
-// const glob = require('glob');
+//importation de morgan(logger http)
+const morgan = require("morgan");
+// importation de connexion de bd
+const mongoose = require("./server/db/dbConnect.js");
+// importation des routes
+const userRoutes = require("./server/path/pathUser.js" );
+//importation de body-parser
+const bodyParser = require("body-parser");
+const res = require("express/lib/response");
 
 // application
 const app = express();
@@ -30,11 +37,39 @@ var hbs = exphbs.create({
   layoutsDir: __dirname + "/public/layouts/",
 });
 app.engine("hbs", hbs.engine);
+
+
 app.set("views", path.join(__dirname, "/public/views/"));
 app.set("view engine", "hbs");
 
 // Set paths to static files
 app.use(express.static(__dirname + "/public"));
+
+// logger les  requests et les responses 
+app.use(morgan("dev"));
+
+// gérer les pblms de CORS
+//(Cross-Origin-Request-Sharing)
+//quand on a le front-end sur un serveur
+// et le back-end sur un autre
+app.use((req,res,next) => {
+res.setHeader("Access-Control-Allow-Origin","*");
+res.setHeader(
+    "Access-Constrol-Allow-Headers",
+    "Origin, X-Requested-with, Content, Accept, Content-Type, Authorization"
+);
+res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+);
+next();
+});
+
+//tranformer le body en json utilisable
+app.use(bodyParser.json());
+
+//la route d'authentification
+app.use("/", userRoutes);
 
 // Startup page for the server
 app.get("/", function (req, res) {
@@ -72,6 +107,7 @@ app.listen(process.env.PORT, "0.0.0.0", function (err) {
     console.log(`error`);
     process.exit(1);
   }
+  //console.log("adresse écouté: " + process.env.IP);
   console.log("port: " + process.env.PORT);
 });
 
@@ -101,12 +137,12 @@ const getData = async () => {
   fs.writeFileSync("data.json", FinalJSON);
   console.log('fichier data.json ecrit');
 };
-// getData();
+getData();
 
-var readData = require('./server/processCarbuData');
-readData.getDataJson('ville','Ermont');
+var readData = require('./server/carbu/processCarbuData');
+readData.getDataJson('ville','Paris');
 console.log(readData.getGpsCoordinates());
 console.log(readData.getAddress());
-console.log(readData.getCarburant());
+//console.log(readData.getCarburant());
 
 console.log("fin du serveur");

@@ -1,5 +1,5 @@
 function createMenu(){
-  var divMenu = document.getElementsByClassName('barre');
+  var divMenu = document.getElementsByClassName('bg-dark');
 
   let divContainer = document.createElement('div');
   divContainer.className = 'container';

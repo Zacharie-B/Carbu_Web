@@ -10,7 +10,11 @@
     <title>{{title}}</title>
   </head>
   <body>
-    <div id="menu-index" class="barre"></div>
+    <div id="menu-index" class="bg-dark">
+      <button onclick="myFunction()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
     <script src="/scripts/buildMenu.js" type="text/javascript" defer></script>
     {{{body}}}
   </body>
