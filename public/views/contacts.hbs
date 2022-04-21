@@ -1,36 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body>
-    <div id="contacts-table">
-      <table class="contacts-data">
-        <caption>Qui sommes-nous ? :</caption>
-        <thead>
-          <tr>
-            <th>Prénom</th>
-            <th>Formation</th>
-            <th>Contact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Zacharie</th>
-            <th>Master 1 IRS à Paris-Saclay Université</th>
-            <th rowspan="4">carbu.aws@gmail.com</th>
-          </tr>
-          <tr>
-            <th>Raphaël</th>
-            <th>Master 1 DataScale à Paris-Saclay Université</th>
-          </tr>
-          <tr>
-            <th>Lissia</th>
-            <th>Master 1 IRS à Paris-Saclay Université</th>
-          </tr>
-          <tr>
-            <th>Maria</th>
-            <th>Master 1 DataScale à Paris-Saclay Université</th>
-          </tr>
-        </tbody>
-      </table>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Design || Future Web</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class = "bod">
+    <div class="container-contacts">
+        <table >
+          <caption>Qui sommes-nous ? :</caption>
+          <thead>
+            <tr>
+              <th>Prénom</th>
+              <th>Formation</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Zacharie</th>
+              <th>Master 1 IRS à Paris-Saclay Université</th>
+              <th rowspan="4">carbu.aws@gmail.com</th>
+            </tr>
+            <tr>
+              <th>Raphaël</th>
+              <th>Master 1 DataScale à Paris-Saclay Université</th>
+            </tr>
+            <tr>
+              <th>Lissia</th>
+              <th>Master 1 IRS à Paris-Saclay Université</th>
+            </tr>
+            <tr>
+              <th>Maria</th>
+              <th>Master 1 DataScale à Paris-Saclay Université</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+    <script>
+      /* */
+      function myFunction() {
+        document.getElementById("navbarContent").classList.toggle("show");
+      }
+      // 
+      window.onclick = function(event) {
+        if (!event.target.matches('.navbar-toggler')) {
+          var dropdowns = document.getElementsByClassName("navbar-collapse");
+          var i;
+          for (i = 1; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
     </div>
   </body>
+  
 </html>

@@ -1,4 +1,5 @@
 var readJson = require('./readJson');
+var readCsv = require('./readCsv');
 
 // Stocke toutes les données de la recherche faîte par l'utilisateur
 var data;
@@ -11,11 +12,11 @@ exports.getDataJson = function (mode, ...args) {
   if(mode == 'ville'){
     data = readJson.searchDataCity(args[0]);
   }
-  else if(mode == 'gps'){
-    data = readJson.searchDataPosition(args[0], args[1], args[2]);
+  else if(mode == 'departement'){
+    data = readJson.searchDataDepartment(args[0]);
   }
   else{
-    console.log("Le mode de recherche indiqué n\'est pas connu, veuillez indiqué 'ville' ou 'gps' ");
+    console.log("Le mode de recherche indiqué n\'est pas connu, veuillez indiqué 'ville' ou 'departement' ");
   }
 }
 
@@ -89,13 +90,13 @@ exports.getCarburant = function () {
  */
 function pushCarburant(item) {
   var carburant = new Map();
-  
-  for(let i = 0; i < item.prix.length; i++){
-    
-    carburant.set(
-      item.prix[i]._attributes.nom, 
-      item.prix[i]._attributes.valeur
-    );
+  if(item.prix != undefined){
+    for(let i = 0; i < item.prix.length; i++){
+      carburant.set(
+        item.prix[i]._attributes.nom, 
+        item.prix[i]._attributes.valeur
+      );
+    }
   }
   return carburant;
 }

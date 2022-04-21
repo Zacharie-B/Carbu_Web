@@ -7,15 +7,46 @@
     />
 
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/contacts.css" />
     <title>{{title}}</title>
   </head>
   <body>
-    <div id="menu-index" class="bg-dark">
-      <button onclick="myFunction()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+     <div class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <nav class="col navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="index">
+            <img src="../images/logo.jpg" width="50" height="50" alt="Info Logo" />
+            Trouve ton essence
+          </a>
+          <button onclick="myFunction()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="navbarContent" class="collapse navbar-collapse">
+            <div class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="">Accueil</a>
+              </li>
+            </div>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="search">Recherche ta station</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login">Se connecter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="register">S'inscrire</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contacts">Contacts</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
-    <script src="/scripts/buildMenu.js" type="text/javascript" defer></script>
+  </div>
     {{{body}}}
   </body>
 </html>

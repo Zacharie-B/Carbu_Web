@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="container">
+      <div class="row">
+        <ul>
+          <li>
+            <label class="input_label">Gazole</label>
+            <input class="fuel_choice" type="button" value="Add to choice">
+          </li>
+          <li>
+            <label class="input_label">SP95</label>
+            <input class="fuel_choice" type="button" value="Add to choice">
+          </li>
+          <li>
+            <label class="input_label">SP98</label>
+            <input class="fuel_choice" type="button" value="Add to choice">
+          </li>
+          <li>
+            <label class="input_label">E85</label>
+            <input class="fuel_choice" type="button" value="Add to choice">
+          </li>
+          <li>
+            <label class="input_label">E10</label>
+            <input class="fuel_choice" type="button" value="Add to choice">
+          </li>
+          <li>
+            <label class="input_label">GPL</label>
+            <input class="fuel_choice" type="button" value="Add to choice">
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="">
+          <label class="input_label" for="ville-recherche">Ville</label>
+          <div id="ville-recherche-groupe">
+            <input type="text" class="ville-search" id="ville-recherche" name="ville-recherche" placeholder="Ville à rechercher..." />
+            <datalist class="ville-recherche-datalist" id="ville-recherche-results">
+            </datalist>
+          </div>
+          <div class="">
+            <label class="input_label" for="departement-recherche">Département</label>
+            <div id="departement-recherche-groupe">
+              <input type="text" class="departement-search" id="departement-recherche" name="departement-recherche" placeholder="Departement à rechercher..." />
+              <datalist class="departement-recherche-datalist" id="departement-recherche-results">
+              </datalist>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      /* */
+      function myFunction() {
+        document.getElementById("navbarContent").classList.toggle("show");
+      }
+      // 
+      window.onclick = function(event) {
+        if (!event.target.matches('.navbar-toggler')) {
+          var dropdowns = document.getElementsByClassName("navbar-collapse");
+          var i;
+          for (i = 1; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
+    <script src="script/search_fuel.js" defer></script>
+    <script src="server/carbu/processCarbuData.js" defer></script>
+  </body>
+</html>

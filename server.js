@@ -88,16 +88,16 @@ app.get("/login", function (req, res) {
 
 // get register.hbs
 app.get("/register", function (req, res) {
-  res.render("register", {
-    title: "Trouve ton essence !",
-    prix: "1",
-    station_ex: "Paris"
-  });
+  res.render("register", { title: "Trouve ton essence !"});
 });
 
 // get contacts.hbs
 app.get("/contacts", function (req, res) {
   res.render("contacts", { title: "Trouve ton essence !" });
+});
+
+app.get("/search", function (req, res) {
+  res.render("search", { title: "Trouve ton essence !" });
 });
 
 
@@ -137,12 +137,6 @@ const getData = async () => {
   fs.writeFileSync("data.json", FinalJSON);
   console.log('fichier data.json ecrit');
 };
-getData();
-
-var readData = require('./server/carbu/processCarbuData');
-readData.getDataJson('ville','Paris');
-console.log(readData.getGpsCoordinates());
-console.log(readData.getAddress());
-//console.log(readData.getCarburant());
+// getData();
 
 console.log("fin du serveur");
